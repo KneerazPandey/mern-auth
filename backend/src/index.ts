@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import { config } from './conf';
 import Setting from './conf/settings';
+import Database from './db';
 
 config();
 const app = express();
@@ -12,5 +13,6 @@ const server = http.createServer(app);
 
 server.listen(port, async () => {
     console.log(`Server is listning at http://localhost:${port}`);
+    Database.connect();
 });
 
